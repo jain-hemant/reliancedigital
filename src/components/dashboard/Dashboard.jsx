@@ -241,7 +241,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       {/* Menu Categories Section */}
-      <MenuCategories />
+      {/* <MenuCategories /> */}
       
       {/* Main Image Carousel */}
       <ImageCarousel images={mainCarouselImages} />

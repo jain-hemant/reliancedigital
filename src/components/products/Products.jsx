@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, selectAllProducts } from '../../redux/slices/productSlice';
 import { addToCart } from '../../redux/slices/cartSlice';
+import { showNotification } from '../../redux/slices/notificationSlice';
 import { FiHeart, FiShoppingCart } from 'react-icons/fi';
 
 const Products = () => {
@@ -40,6 +41,10 @@ const Products = () => {
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
+    dispatch(showNotification({
+      message: `${product.title.substring(0, 20)}... added to cart`,
+      type: 'success'
+    }));
   };
 
   if (status === 'loading') {

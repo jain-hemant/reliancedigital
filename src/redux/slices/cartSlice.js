@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { showNotification } from './notificationSlice';
 
 // Get cart from localStorage if available
 const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];

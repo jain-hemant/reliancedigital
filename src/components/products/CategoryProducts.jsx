@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchCategoryProducts, setCurrentCategory } from '../../redux/slices/categorySlice';
 import { addToCart } from '../../redux/slices/cartSlice';
+import { showNotification } from '../../redux/slices/notificationSlice';
 import { FiHeart, FiShoppingCart } from 'react-icons/fi';
 
 const CategoryProducts = () => {
@@ -20,6 +21,10 @@ const CategoryProducts = () => {
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
+    dispatch(showNotification({
+      message: `${product.title.substring(0, 20)}... added to cart`,
+      type: 'success'
+    }));
   };
 
   const formatCategoryName = (category) => {
